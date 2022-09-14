@@ -29,7 +29,11 @@
     // "rootDir": "./",                                  /* Specify the root folder within your source files. */
     "moduleResolution": "NodeNext",                       /* Specify how TypeScript looks up a file from a given module specifier. */
     "baseUrl": "./src",                                  /* Specify the base directory to resolve non-relative module names. */
-    // "paths": {},                                      /* Specify a set of entries that re-map imports to additional lookup locations. */
+    "paths": {
+      "@api/*": ["api/*"],
+      "@type/*": ["type/*"],
+      "@components/*": ["components/*"]
+    },                                      /* Specify a set of entries that re-map imports to additional lookup locations. */
     // "rootDirs": [],                                   /* Allow multiple folders to be treated as one when resolving modules. */
     // "typeRoots": [],                                  /* Specify multiple folders that act like './node_modules/@types'. */
     // "types": [],                                      /* Specify type package names to be included without being referenced in a source file. */
@@ -73,7 +77,7 @@
     // "allowSyntheticDefaultImports": true,             /* Allow 'import x from y' when a module doesn't have a default export. */
     "esModuleInterop": true,                             /* Emit additional JavaScript to ease support for importing CommonJS modules. This enables 'allowSyntheticDefaultImports' for type compatibility. */
     // "preserveSymlinks": true,                         /* Disable resolving symlinks to their realpath. This correlates to the same flag in node. */
-    "forceConsistentCasingInFileNames": true,            /* Ensure that casing is correct in imports. */
+    // "forceConsistentCasingInFileNames": true,            /* Ensure that casing is correct in imports. */
 
     /* Type Checking */
     "strict": true,                                      /* Enable all strict type-checking options. */

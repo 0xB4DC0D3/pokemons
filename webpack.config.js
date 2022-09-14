@@ -59,7 +59,7 @@ const config = {
   stats: "errors-warnings",
   target: "web",
   resolve: {
-    extensions: [".ts", ".tsx", ".js", ".jsx"],
+    extensions: [".ts", ".tsx", ".js"],
     plugins: [new TsConfigPathsWebpackPlugin()]
   }
 };

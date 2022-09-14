@@ -2,7 +2,11 @@
 module.exports = {
   content: ["./src/**/*.tsx"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        nabla: ["Nabla", "sans-serif"]
+      }
+    },
   },
   plugins: [],
 }

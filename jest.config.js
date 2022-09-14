@@ -88,10 +88,14 @@ module.exports = {
   ],
 
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
-  // moduleNameMapper: {},
+  moduleNameMapper: {
+    "@api/(.*)": "<rootDir>/src/api/$1",
+    "@type/(.*)": "<rootDir>/src/type/$1",
+    "@components/(.*)": "<rootDir>/src/components/$1"
+  },
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
-  modulePathIgnorePatterns: ["./node_modules"],
+  modulePathIgnorePatterns: ["node_modules"],
 
   // Activates notifications for test results
   // notify: false,
@@ -121,7 +125,7 @@ module.exports = {
   // restoreMocks: false,
 
   // The root directory that Jest should scan for tests and modules within
-  // rootDir: "",
+  rootDir: "./",
 
   // A list of paths to directories that Jest should use to search for files in
   // roots: [
