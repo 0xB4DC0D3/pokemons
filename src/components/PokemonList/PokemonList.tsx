@@ -11,7 +11,7 @@ export default function PokemonList({data}: PokemonListProps) {
 
   return (
     <div className="w-5/6 sm:container mx-auto py-4">
-      <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-9 gap-4">
+      <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5 2xl:grid-cols-10 gap-4">
         {data
           .filter(pokemon => sortTypes.every(type => pokemon.types.includes(type)))
           .map(pokemon => <Pokemon key={pokemon.id} {...pokemon} />)
