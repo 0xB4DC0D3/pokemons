@@ -1,5 +1,6 @@
-import { AppDispatch } from "@store"
-import { fetchPokemons } from "./pokemonActions"
+import { AppDispatch, RootState } from "@store"
+import { ThunkDispatch } from "redux-thunk"
+import { fetchPokemons, PokemonAction } from "./pokemonActions"
 
 type PaginationActionSetPagination = {
   type: "pagination/setPagination";
@@ -33,15 +34,15 @@ export function setPages(nextUrl: string | null, previousUrl: string | null): Pa
 }
 
 export function fetchNextPage(nextUrl: string | null) {
-  return async (dispatch: AppDispatch) => {
+  return async (dispatch: ThunkDispatch<RootState, void, PokemonAction>) => {
     if (nextUrl) 
-      fetchPokemons(nextUrl)(dispatch);
+      dispatch(fetchPokemons(nextUrl));
   }
 }
 
 export function fetchPreviousPage(previousUrl: string | null) {
-  return async (dispatch: AppDispatch) => {
+  return async (dispatch: ThunkDispatch<RootState, void, PokemonAction>) => {
     if (previousUrl)
-      fetchPokemons(previousUrl)(dispatch);
+      dispatch(fetchPokemons(previousUrl));
   }
 }

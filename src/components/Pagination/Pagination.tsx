@@ -1,21 +1,25 @@
 import useActions from "@hooks/useActions"
 import useAppSelector from "@hooks/useAppSelector"
-import { useEffect, useRef } from "react"
 import { shallowEqual } from "react-redux"
 
 export default function Pagination() {
   const { next: nextPage, previous: previousPage } = useAppSelector(state => state.pagination, shallowEqual);
+  const { loading } = useAppSelector(state => state.pokemon, shallowEqual);
 
   const { fetchNextPage, fetchPreviousPage, clearSort } = useActions();
 
   const handleNextPage = () => {
-    clearSort();
-    fetchNextPage(nextPage);
+    if (nextPage && !loading) {
+      clearSort();
+      fetchNextPage(nextPage);
+    }
   }
 
   const handlePreviousPage = () => {
-    clearSort();
-    fetchPreviousPage(previousPage);
+    if (previousPage && !loading) {
+      clearSort();
+      fetchPreviousPage(previousPage);
+    }
   }
 
   return (

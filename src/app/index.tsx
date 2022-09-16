@@ -2,7 +2,7 @@ import MainPage from "pages/MainPage"
 import useActions from "@hooks/useActions"
 import useAppSelector from "@hooks/useAppSelector"
 import { shallowEqual } from "react-redux"
-import { useEffect, useRef } from "react"
+import { useEffect } from "react"
 
 export default function App() {
   const { pokemons, error, loading } = useAppSelector(state => state.pokemon, shallowEqual);

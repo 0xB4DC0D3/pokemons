@@ -1,7 +1,6 @@
-import { Header, PokemonList, Pokemon, Search, Pagination, Sort } from "@components"
+import { Header, PokemonList, Search, Pagination, Sort } from "@components"
 import PokemonType from "@type/Pokemon"
 import React from "react"
-import { useRef } from "react"
 
 type MainPageProps = {
   pokemons: PokemonType[];

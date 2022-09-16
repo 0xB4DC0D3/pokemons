@@ -89,14 +89,14 @@ module.exports = {
 
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
   moduleNameMapper: {
-    "@api": "<rootDir>/src/api",
-    "@type": "<rootDir>/src/type",
-    "@components": "<rootDir>/src/components",
-    "@app": "<rootDir>/src/app",
-    "@pages": "<rootDir>/src/pages",
-    "@store": "<rootDir>/src/store",
-    "@hooks": "<rootDir>/src/hooks",
-    "@constants": "<rootDir>/src/constants"
+    "^@api(.*)$": "<rootDir>/src/api$1",
+    "^@type(.*)$": "<rootDir>/src/type$1",
+    "^@components(.*)$": "<rootDir>/src/components$1",
+    "^@app(.*)$": "<rootDir>/src/app$1",
+    "^@pages(.*)$": "<rootDir>/src/pages$1",
+    "^@store(.*)$": "<rootDir>/src/store$1",
+    "^@hooks(.*)$": "<rootDir>/src/hooks$1",
+    "^@constants(.*)$": "<rootDir>/src/constants$1"
   },
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader

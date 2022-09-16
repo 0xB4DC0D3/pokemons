@@ -1,4 +1,4 @@
-import { fetchPokemon, fetchPokemonNames } from "./pokemonAPI"
+import { fetchPokemon, fetchPokemonNames, fetchTypes } from "./pokemonAPI"
 
 describe("Test API", () => {
   test("fetchPokemonNames", async () => {
@@ -16,12 +16,19 @@ describe("Test API", () => {
   });
 
   test("fetchPokemon", async () => {
-    let pokemon = await fetchPokemon("bulbasaur");
+    const pokemon = await fetchPokemon("bulbasaur");
 
     expect(pokemon.name).toEqual("bulbasaur");
     expect(pokemon.imageUrl).toEqual("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png");
     expect(pokemon.moves[0]).toEqual("razor-wind");
     expect(pokemon.stats[0].name).toEqual("hp");
     expect(pokemon.types[0]).toEqual("grass");
+  });
+
+  test("fetchTypes", async () => {
+    const pokemonTypes = await fetchTypes();
+    const firstThreePokemonTypes = pokemonTypes.slice(0, 3);
+    expect(JSON.stringify(firstThreePokemonTypes) === JSON.stringify(["normal", "fighting", "flying"]))
+      .toBeTruthy();
   });
 });

@@ -97,7 +97,7 @@ export function fetchPokemonByName(name: string) {
           pokemons: [responseData],
           types: getState().pokemon.types
         }
-      })
+      });
     } catch (error) {
       dispatch({
         type: "pokemon/fetchSuccess",

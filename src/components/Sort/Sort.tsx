@@ -15,7 +15,7 @@ export default function Sort() {
         return (
           <button 
             key={i}
-            className={`block ${selected ? "bg-orange-500 hover:bg-orange-600" : "bg-gray-100 hover:bg-gray-200"} font-medium text-center text-sm cursor-pointer py-2 px-10 border`}
+            className={`capitalize block ${selected ? "bg-orange-500 hover:bg-orange-600" : "bg-gray-100 hover:bg-gray-200"} font-medium text-center text-sm cursor-pointer py-2 px-10 border`}
             onClick={() => selected ? removeType(type) : addType(type)}
           >
             {type}

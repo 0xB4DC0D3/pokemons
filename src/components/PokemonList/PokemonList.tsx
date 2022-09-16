@@ -1,7 +1,6 @@
 import { Pokemon } from "@components"
 import useAppSelector from "@hooks/useAppSelector"
 import PokemonType from "@type/Pokemon"
-import { useRef } from "react"
 
 type PokemonListProps = {
   data: PokemonType[];
