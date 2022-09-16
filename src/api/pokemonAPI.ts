@@ -1,73 +1,88 @@
 import axios from "axios"
-import pokemonAPI, { PokeAPIEndpoints } from "@api/index"
+import pokemonAPI, { PokeAPIEndpoints } from "@api"
 import Pokemon from "@type/Pokemon"
+import { LIMIT_PER_PAGE } from "@constants"
 
-type PokemonResult = {
-  name: string;
-  url: string;
+export type PokemonResult = {
+  name: string
+  url: string
 }
 
-type PokemonNamesResponse = {
-  count: number;
-  next: string | null;
-  previous: string | null;
-  results: PokemonResult[];
+export type PokemonNamesResponse = {
+  count: number
+  next: string | null
+  previous: string | null
+  results: PokemonResult[]
 }
 
 export async function fetchPokemonNames(
-  limit = 10, 
+  limit = LIMIT_PER_PAGE,
   url: string | null = PokeAPIEndpoints.POKEMON as string
 ) {
-  if (url == null) return null;
+  if (url == null) return null
 
-  let params = null;
+  let params = null
   if (url === PokeAPIEndpoints.POKEMON) {
-    params = { limit };
+    params = { limit }
   }
 
-  const response = await axios.get<PokemonNamesResponse>(url, { params });
-  const { data } = response;
+  const response = await axios.get<PokemonNamesResponse>(url, { params })
+  const { data } = response
 
-  return data;
+  return data
 }
 
 type PokemonResponse = {
-  name: string;
-  moves: { 
-    move: { 
-      name: string; 
+  id: number,
+  name: string
+  moves: {
+    move: {
+      name: string
     }
-  }[];
+  }[]
   sprites: {
-    front_default: string;
-  };
+    front_default: string
+  }
   stats: {
-    base_stat: number;
-    effort: number;
+    base_stat: number
+    effort: number
     stat: {
-      name: string;
+      name: string
     }
-  }[];
+  }[]
   types: {
     type: {
-      name: string;
+      name: string
     }
   }[]
 }
 
-export async function fetchPokemon(name: string): Promise<Pokemon> {
-  const response = await pokemonAPI.get<PokemonResponse>(`pokemon/${name}`);
-  const { data } = response;
+export async function fetchPokemon(param: string | number): Promise<Pokemon> {
+  const response = await pokemonAPI.get<PokemonResponse>(`pokemon/${param}`)
+  const { data } = response
 
   return {
+    id: data.id,
     name: data.name,
     imageUrl: data.sprites.front_default,
-    moves: data.moves.map(({move}) => move.name),
+    moves: data.moves.map(({ move }) => move.name),
     stats: data.stats.map(stat => ({
       baseStat: stat.base_stat,
       effort: stat.effort,
       name: stat.stat.name
     })),
-    types: data.types.map(({type: { name }}) => name)
+    types: data.types.map(({ type: { name } }) => name)
   }
+}
+
+type PokemonTypesResponse = {
+  results: {
+    name: string
+  }[]
+}
+
+export async function fetchTypes(): Promise<string[]> {
+  const response = await pokemonAPI.get<PokemonTypesResponse>("type");
+
+  return response.data.results.map(({ name }) => name)
 }

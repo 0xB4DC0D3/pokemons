@@ -6,6 +6,6 @@
 
 @layer base {
   html {
-    @apply font-nabla;
+    @apply font-openSans;
   }
 }

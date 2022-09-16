@@ -4,7 +4,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        nabla: ["Nabla", "sans-serif"]
+        nabla: ["Nabla", "sans-serif"],
+        openSans: ["Open Sans", "sans-serif"]
       }
     },
   },

@@ -1,0 +1,7 @@
+export { default as Pokemon } from "./Pokemon/Pokemon"
+export { default as PokemonInfoModal } from "./PokemonInfoModal/PokemonInfoModal"
+export { default as PokemonList } from "./PokemonList/PokemonList"
+export { default as Search } from "./Search/Search"
+export { default as Header } from "./Header/Header"
+export { default as Pagination } from "./Pagination/Pagination"
+export { default as Sort } from "./Sort/Sort"
