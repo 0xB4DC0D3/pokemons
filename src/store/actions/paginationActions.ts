@@ -1,4 +1,4 @@
-import { AppDispatch, RootState } from "@store"
+import { RootState } from "@store"
 import { ThunkDispatch } from "redux-thunk"
 import { fetchPokemons, PokemonAction } from "./pokemonActions"
 
