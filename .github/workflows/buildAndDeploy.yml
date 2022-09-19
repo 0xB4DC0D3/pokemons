@@ -31,9 +31,11 @@ jobs:
         name: github-pages
         path: dist
   deploy:
+    runs-on: macos-latest
     needs: build
     permissions:
         pages: write      # to deploy to Pages
         id-token: write
-    - name: Deploy GitHub Pages site
-      uses: actions/deploy-pages@v1.2.0
+    steps:
+      - name: Deploy GitHub Pages site
+        uses: actions/deploy-pages@v1.2.0
