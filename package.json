@@ -21,7 +21,7 @@
   "bugs": {
     "url": "https://github.com/0xB4DC0D3/pokemons/issues"
   },
-  "homepage": "https://github.com/0xB4DC0D3/pokemons#readme",
+  "homepage": "https://0xb4dc0d3.github.io/pokemons",
   "dependencies": {
     "axios": "^0.27.2",
     "react": "^18.2.0",
