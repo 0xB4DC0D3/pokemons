@@ -9,7 +9,7 @@ const config = {
   output: {
     clean: true,
     compareBeforeEmit: true,
-    filename: "[name].[contenthash:16].js",
+    filename: "[name].[contenthash:8].js",
     path: path.resolve(__dirname, "dist"),
   },
   module: {
