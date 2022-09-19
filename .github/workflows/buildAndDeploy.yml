@@ -25,11 +25,13 @@ jobs:
       run: npm run test
     - name: Build 
       run: npm run build
+    - name: Tar files
+      run: tar -cvf build.tar dist
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v3.1.0
       with:
         name: build
-        path: ./dist/*
+        path: build.tar
   deploy:
     # Add a dependency to the build job
     needs: build
