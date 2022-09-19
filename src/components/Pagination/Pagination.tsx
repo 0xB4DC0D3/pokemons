@@ -10,15 +10,15 @@ export default function Pagination() {
 
   const handleNextPage = () => {
     if (nextPage && !loading) {
-      clearSort();
       fetchNextPage(nextPage);
+      clearSort();
     }
   }
 
   const handlePreviousPage = () => {
     if (previousPage && !loading) {
-      clearSort();
       fetchPreviousPage(previousPage);
+      clearSort();
     }
   }
 
